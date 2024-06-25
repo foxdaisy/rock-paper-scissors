@@ -19,10 +19,15 @@ function getComputerChoice() {
 
 function getHumanChoice() {
     let humanChoice = prompt("Rock, paper or scissors?");
+
+    if (humanChoice === null) {
+        return humanChoice;
+    }
+
     while (checkValidity(humanChoice) === false) {
         humanChoice = prompt("Rock, paper or scissors?");
     }
-    
+
     humanChoice = humanChoice.toLowerCase();
     return humanChoice;
 }
@@ -67,6 +72,9 @@ function playGame() {
     for (let i = 0; i < 5; i++) {
         const computerSelection = getComputerChoice();
         const humanSelection = getHumanChoice();
+        if (humanSelection === null) {
+            return;
+        }
         playRound(computerSelection, humanSelection);
     }
 
