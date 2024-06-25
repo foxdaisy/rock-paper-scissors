@@ -1,3 +1,6 @@
+let humanScore = 0;
+let computerScore = 0;
+
 function getComputerChoice() {
     let randomNumber = Math.round(Math.random() * 2) + 1;
     let computerChoice;
@@ -36,7 +39,27 @@ function checkValidity(humanChoice) {
     }
 }
 
-let computerChoice = getComputerChoice();
-let humanChoice = getHumanChoice();
-// console.log(computerChoice);
-console.log(humanChoice)
+function playRound(computerChoice, humanChoice) {
+    if (computerChoice === humanChoice) 
+    {
+        console.log(`Tied! Both of you chose ${humanChoice}.`);
+        return;
+    }
+
+    if (humanChoice === "rock" && computerChoice === "scissors" ||
+        humanChoice === "paper" && computerChoice === "rock" || 
+        humanChoice === "scissors" && computerChoice === "paper") 
+    {
+        console.log(`You win! ${humanChoice} beats ${computerChoice}.`);
+        return;
+    } else {
+        console.log(`You lose! ${computerChoice} beats ${humanChoice}.`);
+        return;
+    }
+    
+    
+}
+
+const computerSelection = getComputerChoice();
+const humanSelection = getHumanChoice();
+playRound(computerSelection, humanSelection);
