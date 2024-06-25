@@ -19,9 +19,10 @@ function getComputerChoice() {
 
 function getHumanChoice() {
     let humanChoice = prompt("Rock, paper or scissors?");
-    if (checkValidity(humanChoice) === false) {
-        return;
+    while (checkValidity(humanChoice) === false) {
+        humanChoice = prompt("Rock, paper or scissors?");
     }
+    
     humanChoice = humanChoice.toLowerCase();
     return humanChoice;
 }
